@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     totalAmountDiv = document.getElementById("total-amount");
     
     if (totalAmountDiv) {
-        total = localStorage.getItem("total");
+        total = parseFloat(localStorage.getItem("total"));
         totalAmountDiv.textContent = `Total: $${total.toFixed(2)}`;
     }
 });
