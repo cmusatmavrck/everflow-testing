@@ -11,10 +11,15 @@
         <a href="index.html" class="btn">Back to Landing Page</a>
         <h1>Everflow Testing</h1>
         <h2>Products Page</h1>
-        <ul id="product-list">
+        <ul id="product-list" onchange="updateCartSummary()">
             <!-- The product items will be added dynamically using JavaScript -->
         </ul>
-        <button id="calculate-btn" class="btn calculate-btn" onclick="calculateTotal">Calculate Total</button>
+        <div class="cart-summary">
+            <h2>Cart Summary</h2>
+            <div id="total-amount">$0.00</div>
+        </div>
+
+        <button id="calculate-btn" class="btn calculate-btn" onclick="calculateTotal()">Calculate Total</button>
     </div>
 
     <script src="main.js"></script>

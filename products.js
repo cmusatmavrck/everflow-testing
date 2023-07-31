@@ -46,8 +46,28 @@ function calculateTotal() {
     console.log(`Total: $${total.toFixed(2)}`);
 }
 
+let productContainer = document.getElementById("product-list");
+let cartSummaryDiv = document.getElementById("total-amount");
+
+let total = 0;
+
+function updateCartSummary() {
+    total = 0;
+    const selectedProducts = document.querySelectorAll('input[type="checkbox"]:checked');
+
+    selectedProducts.forEach((checkbox) => {
+        const productItem = checkbox.parentNode;
+        const price = parseFloat(productItem.querySelector('span:nth-child(3)').textContent.replace(/\$/g, ''));
+        const quantity = parseInt(productItem.querySelector('input[type="number"]').value);
+        total += price * quantity;
+    });
+
+    cartSummaryDiv.textContent = `Total: $${total.toFixed(2)}`;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-    const productContainer = document.getElementById("product-list");
+    productContainer = document.getElementById("product-list");
+    cartSummaryDiv = document.getElementById("total-amount");
 
     // Function to create a product item element
     function createProductItem(product) {
