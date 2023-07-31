@@ -12,8 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM IS LOADED");
 
     totalAmountDiv = document.getElementById("total-amount");
-
+    
     if (totalAmountDiv) {
+        total = localStorage.getItem("total");
         totalAmountDiv.textContent = `Total: $${total.toFixed(2)}`;
     }
 });

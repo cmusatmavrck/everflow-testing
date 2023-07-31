@@ -50,7 +50,6 @@ function calculateTotal() {
 
 
 function updateCartSummary() {
-    total = 0;
     const selectedProducts = document.querySelectorAll('input[type="checkbox"]:checked');
 
     selectedProducts.forEach((checkbox) => {
@@ -60,6 +59,8 @@ function updateCartSummary() {
         const quantity = parseInt(productItem.querySelector('input[type="number"]').value);
         total += price * quantity;
     });
+
+    localStorage.setItem("total", total);
 
     totalAmountDiv.textContent = `Total: $${total.toFixed(2)}`;
 }
