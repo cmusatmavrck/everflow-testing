@@ -1,7 +1,7 @@
 // GLOABALS
 let total = 0;
 let productContainer = undefined;
-let cartSummaryDiv = undefined;
+let totalAmountDiv = undefined;
 
 
 // Add any JavaScript code you want here
@@ -11,9 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("DOM IS LOADED");
 
-    const totalAmountDiv = document.getElementById("total-amount");
+    totalAmountDiv = document.getElementById("total-amount");
 
     if (totalAmountDiv) {
-        cartSummaryDiv.textContent = `Total: $${total.toFixed(2)}`;
+        totalAmountDiv.textContent = `Total: $${total.toFixed(2)}`;
     }
 });

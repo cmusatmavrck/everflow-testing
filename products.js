@@ -61,25 +61,27 @@ function updateCartSummary() {
         total += price * quantity;
     });
 
-    cartSummaryDiv.textContent = `Total: $${total.toFixed(2)}`;
+    totalAmountDiv.textContent = `Total: $${total.toFixed(2)}`;
+}
+
+function createProductItem(product) {
+    const listItem = document.createElement("li");
+    listItem.innerHTML = `
+        <input type="checkbox" name="product" value="${product.id}">
+        <span>${product.name}</span>
+        <div>Price: $${product.price.toFixed(2)}</div>
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" value="1" min="1" max="10">
+    `;
+    return listItem;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
     productContainer = document.getElementById("product-list");
-    cartSummaryDiv = document.getElementById("total-amount");
+    // cartSummaryDiv = document.getElementById("total-amount");
 
     // Function to create a product item element
-    function createProductItem(product) {
-        const listItem = document.createElement("li");
-        listItem.innerHTML = `
-            <input type="checkbox" name="product" value="${product.id}">
-            <span>${product.name}</span>
-            <div>Price: $${product.price.toFixed(2)}</div>
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" value="1" min="1" max="10">
-        `;
-        return listItem;
-    }
+    
 
     // Loop through the fashionProducts array and add each product to the product list
     for (const product of fashionProducts) {
