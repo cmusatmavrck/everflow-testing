@@ -32,37 +32,41 @@ const fashionProducts = [
 ];
 
 
-function calculateTotal() {
-    const selectedProducts = document.querySelectorAll('input[type="checkbox"]:checked');
-    total = 0;
+// function calculateTotal() {
+//     const selectedProducts = document.querySelectorAll('input[type="checkbox"]:checked');
 
-    selectedProducts.forEach((checkbox) => {
-        const productItem = checkbox.parentNode;
-        const price = parseFloat(productItem.querySelector('div:nth-child(3)').textContent.replace(/Price: \$/g, ''));
-        console.log("CALCULATING", price);
-        const quantity = parseInt(productItem.querySelector('input[type="number"]').value);
-        total += price * quantity;
-    });
+//     selectedProducts.forEach((checkbox) => {
+//         const productItem = checkbox.parentNode;
+//         const price = parseFloat(productItem.querySelector('div:nth-child(3)').textContent.replace(/Price: \$/g, ''));
+//         console.log("CALCULATING", price);
+//         const quantity = parseInt(productItem.querySelector('input[type="number"]').value);
+//         total += price * quantity;
+//     });
 
-    console.log(`Total: $${total.toFixed(2)}`);
-}
+//     console.log(`Total: $${total.toFixed(2)}`);
+// }
 
 
+let total = 0;
 
 function updateCartSummary() {
     const selectedProducts = document.querySelectorAll('input[type="checkbox"]:checked');
+    const amountDiv = document.querySelector("#amount");
 
     selectedProducts.forEach((checkbox) => {
         const productItem = checkbox.parentNode;
         const price = parseFloat(productItem.querySelector('div:nth-child(3)').textContent.replace(/Price: \$/g, ''));
         console.log("UPDAting", price);
         const quantity = parseInt(productItem.querySelector('input[type="number"]').value);
+        console.log(price, ".......",total);
         total += price * quantity;
     });
 
     localStorage.setItem("total", total);
 
-    totalAmountDiv.textContent = `Total: $${total.toFixed(2)}`;
+    console.log(localStorage.getItem("total"));
+
+    amountDiv.textContent = `Total: $${parseFloat(localStorage.getItem("total")).toFixed(2)}`;
 }
 
 function createProductItem(product) {

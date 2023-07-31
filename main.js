@@ -1,5 +1,5 @@
 // GLOABALS
-let total = 0;
+// let total = 0
 let productContainer = undefined;
 let totalAmountDiv = undefined;
 
