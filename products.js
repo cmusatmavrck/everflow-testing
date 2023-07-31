@@ -31,7 +31,6 @@ const fashionProducts = [
     },
 ];
 
-let total = 0;
 
 function calculateTotal() {
     const selectedProducts = document.querySelectorAll('input[type="checkbox"]:checked');
@@ -48,8 +47,6 @@ function calculateTotal() {
     console.log(`Total: $${total.toFixed(2)}`);
 }
 
-let productContainer = document.getElementById("product-list");
-let cartSummaryDiv = document.getElementById("total-amount");
 
 
 function updateCartSummary() {
