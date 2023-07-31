@@ -1,0 +1,25 @@
+// Conversion
+
+    <script
+
+      type="text/javascript"
+
+      src="https://www.mnpa6gtrk.com/scripts/sdk/everflow.js"
+
+    ></script>
+
+    <script type="text/javascript">
+
+      const offerId = document.cookie.match(/offer_id=(\d+)/)[1];
+
+      EF.conversion({
+
+          offer_id: offerId,
+
+          transaction_id: EF.getTransactionId(offerId),
+
+          amount: 10,
+
+      });
+
+    </script>
