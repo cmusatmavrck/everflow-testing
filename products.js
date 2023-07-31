@@ -31,6 +31,21 @@ const fashionProducts = [
     },
 ];
 
+
+function calculateTotal() {
+    const selectedProducts = document.querySelectorAll('input[type="checkbox"]:checked');
+    let total = 0;
+
+    selectedProducts.forEach((checkbox) => {
+        const productItem = checkbox.parentNode;
+        const price = parseFloat(productItem.querySelector('span:nth-child(3)').textContent.replace(/\$/g, ''));
+        const quantity = parseInt(productItem.querySelector('input[type="number"]').value);
+        total += price * quantity;
+    });
+
+    console.log(`Total: $${total.toFixed(2)}`);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const productContainer = document.getElementById("product-list");
 
@@ -52,4 +67,5 @@ document.addEventListener("DOMContentLoaded", function () {
         const productItem = createProductItem(product);
         productContainer.appendChild(productItem);
     }
+
 });

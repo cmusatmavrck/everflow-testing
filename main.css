@@ -78,3 +78,9 @@ input[type="number"] {
     width: 40px;
 }
 
+.calculate-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
