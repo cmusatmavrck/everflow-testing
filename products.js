@@ -31,14 +31,16 @@ const fashionProducts = [
     },
 ];
 
+let total = 0;
 
 function calculateTotal() {
     const selectedProducts = document.querySelectorAll('input[type="checkbox"]:checked');
-    let total = 0;
+    total = 0;
 
     selectedProducts.forEach((checkbox) => {
         const productItem = checkbox.parentNode;
-        const price = parseFloat(productItem.querySelector('span:nth-child(3)').textContent.replace(/\$/g, ''));
+        const price = parseFloat(productItem.querySelector('div:nth-child(3)').textContent.replace(/Price: \$/g, ''));
+        console.log("CALCULATING", price);
         const quantity = parseInt(productItem.querySelector('input[type="number"]').value);
         total += price * quantity;
     });
@@ -49,7 +51,6 @@ function calculateTotal() {
 let productContainer = document.getElementById("product-list");
 let cartSummaryDiv = document.getElementById("total-amount");
 
-let total = 0;
 
 function updateCartSummary() {
     total = 0;
@@ -57,7 +58,8 @@ function updateCartSummary() {
 
     selectedProducts.forEach((checkbox) => {
         const productItem = checkbox.parentNode;
-        const price = parseFloat(productItem.querySelector('span:nth-child(3)').textContent.replace(/\$/g, ''));
+        const price = parseFloat(productItem.querySelector('div:nth-child(3)').textContent.replace(/Price: \$/g, ''));
+        console.log("UPDAting", price);
         const quantity = parseInt(productItem.querySelector('input[type="number"]').value);
         total += price * quantity;
     });
