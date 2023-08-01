@@ -83,6 +83,7 @@ function createProductItem(product) {
 
 document.addEventListener("DOMContentLoaded", function () {
     productContainer = document.getElementById("product-list");
+    localStorage.setItem("total", 0);
     // cartSummaryDiv = document.getElementById("total-amount");
 
     // Function to create a product item element
