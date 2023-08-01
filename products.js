@@ -76,8 +76,8 @@ function createProductItem(product) {
             <input type="checkbox" name="product" value="${product.id}">
             <div class="product-des">
                 <span>${product.name}</span>
+                <div style="padding-bottom: 10px">${product.description}</div>
                 <div>Price: $${product.price.toFixed(2)}</div>
-                <div>${product.description}</div>
             </div>
         </div>
         <label for="quantity">Quantity:</label>
