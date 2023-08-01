@@ -55,9 +55,9 @@ function updateCartSummary() {
 
     selectedProducts.forEach((checkbox) => {
         const productItem = checkbox.parentNode;
-        const price = parseFloat(productItem.querySelector('div:nth-child(3)').textContent.replace(/Price: \$/g, ''));
+        const price = parseFloat(productItem.querySelectorAll('.price').textContent.replace(/Price: \$/g, ''));
         console.log("UPDAting", price);
-        const quantity = parseInt(productItem.querySelector('input[type="number"]').value);
+        const quantity = parseInt(document.querySelector('input[type="number"]').value);
         console.log(price, ".......",total);
         total += price * quantity;
     });
@@ -77,7 +77,7 @@ function createProductItem(product) {
             <div class="product-des">
                 <span>${product.name}</span>
                 <div style="padding-bottom: 10px">${product.description}</div>
-                <div>Price: $${product.price.toFixed(2)}</div>
+                <div  class="price">Price: $${product.price.toFixed(2)}</div>
             </div>
         </div>
         <label for="quantity">Quantity:</label>
